@@ -1,22 +1,33 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../redux/customers/customers";
+import { fetchCustomers } from "../redux/customers/customers";
 import "../App.css";
 
-const Customers = () => {
-  const displayCustomers = useSelector((state) => state.customers);
+const Greeting = () => {
+  const customers = useSelector((state) => state.customers.customers);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchCustomers([dispatch]));
   });
+
+  const renderCustomers = () => {
+    return customers.map((customer) => {
+      return (
+        <div key={customer.id}>
+          <h3>{customer.first_name}</h3>
+          <p>{customer.last_name}</p>
+        </div>
+      );
+    });
+  };
 
   return (
     <div className="App">
-      <h2>Greeting</h2>
-      <p>{displayCustomers}</p>
+      <h1>Customers</h1>
+      {renderCustomers()}
     </div>
   );
 };
 
-export default Customers;
+export default Greeting;

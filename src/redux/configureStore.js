@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import customerReducer from "./customers/customers";
+import { customersReducer } from "../redux/customers/customers";
 import orderReducer from "./orders/orders";
 import productReducer from "./products/products";
 
 const reducer = combineReducers({
-  customers: customerReducer,
+  customers: customersReducer,
   orders: orderReducer,
   products: productReducer,
 });
