@@ -11,21 +11,14 @@ const Greeting = () => {
     dispatch(fetchCustomers([dispatch]));
   });
 
-  const renderCustomers = () => {
-    return customers.map((customer) => {
-      return (
-        <div key={customer.id}>
-          <h3>{customer.first_name}</h3>
-          <p>{customer.last_name}</p>
-        </div>
-      );
-    });
-  };
-
   return (
     <div className="App">
-      <h1>Customers</h1>
-      {renderCustomers()}
+      {customers.map((customer) => (
+        <div key={customer.id}>
+          <h1>{customer.first_name}</h1>
+          <h2>{customer.email}</h2>
+        </div>
+      ))}
     </div>
   );
 };

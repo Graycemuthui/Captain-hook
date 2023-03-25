@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { customersReducer } from "../redux/customers/customers";
+import customersReducer from "../redux/customers/customers";
 import orderReducer from "./orders/orders";
 import productReducer from "./products/products";
 
