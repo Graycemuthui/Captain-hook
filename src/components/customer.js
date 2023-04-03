@@ -1,26 +1,32 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCustomers } from "../redux/customers/customers";
-import "../App.css";
+// import React, { useEffect, useState } from "react";
+import Form from "./form";
+import "./customer.css";
 
-const Greeting = () => {
-  const customers = useSelector((state) => state.customers.customers);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCustomers([dispatch]));
-  });
+const Customer = () => {
+  // const [customers, setCustomers] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:3000/api/v1/customers")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setCustomers(data);
+  //     });
+  // }, []);
 
   return (
     <div className="App">
-      {customers.map((customer) => (
-        <div key={customer.id}>
-          <h1>{customer.first_name}</h1>
-          <h2>{customer.email}</h2>
-        </div>
-      ))}
+      <div className="heading">
+        <h1>CAPTAIN ARTSY HOOK</h1>
+        <p>Here to showcase art and give you a great experience</p>
+        <img
+          src="https://images.pexels.com/photos/1579708/pexels-photo-1579708.jpeg?auto=compress&cs=tinysrgb&w=400"
+          alt="Captain Hook"
+        />
+      </div>
+      <div className="form">
+        <Form />
+      </div>
     </div>
   );
 };
 
-export default Greeting;
+export default Customer;
