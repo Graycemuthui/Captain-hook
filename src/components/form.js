@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./form.css";
 
 function Form() {
@@ -10,7 +11,7 @@ function Form() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleInput = (e) => {
     e.preventDefault();
 
     const customer = {
@@ -23,7 +24,7 @@ function Form() {
       country,
     };
 
-    fetch("http://127.0.0.1:3000/api/v1/customers", {
+    fetch(" http://localhost:3000/api/v1/customers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,9 +46,14 @@ function Form() {
     setCountry("");
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+  };
+
   return (
     <div className="form">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleInput}>
         <label>
           First Name:
           <input
@@ -111,9 +117,16 @@ function Form() {
             onChange={(e) => setCountry(e.target.value)}
           />
         </label>
-        <button type="submit" value="Submit" className="submit">
-          Submit
-        </button>
+        <Link to="/product">
+          <button
+            type="submit"
+            value="Submit"
+            className="submit"
+            onSubmit={handleSubmit}
+          >
+            Submit
+          </button>
+        </Link>
       </form>
     </div>
   );
