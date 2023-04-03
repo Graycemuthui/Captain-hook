@@ -3,15 +3,6 @@ import Form from "./form";
 import "./customer.css";
 
 const Customer = () => {
-  // const [customers, setCustomers] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://127.0.0.1:3000/api/v1/customers")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setCustomers(data);
-  //     });
-  // }, []);
-
   return (
     <div className="App">
       <div className="heading">
