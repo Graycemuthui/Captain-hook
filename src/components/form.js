@@ -111,7 +111,9 @@ function Form() {
             onChange={(e) => setCountry(e.target.value)}
           />
         </label>
-        <button type="submit" value="Submit" />
+        <button type="submit" value="Submit" className="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

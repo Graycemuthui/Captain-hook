@@ -2,7 +2,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 6rem;
+  margin-top: 5.5rem;
 }
 
 label {
