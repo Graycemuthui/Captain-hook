@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./form.css";
 
-function Form() {
+const Form = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ function Form() {
       country,
     };
 
-    fetch(" http://localhost:3000/api/v1/customers", {
+    fetch("http://127.0.0.1:3000/api/v1/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,6 +130,6 @@ function Form() {
       </form>
     </div>
   );
-}
+};
 
 export default Form;
