@@ -5,6 +5,7 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 
 const Login = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
+
   const login = async (userInfo, setCurrUser) => {
     const url = "http://localhost:3000/login";
     try {
@@ -16,6 +17,7 @@ const Login = ({ setCurrUser, setShow }) => {
         },
         body: JSON.stringify(userInfo),
       });
+
       const data = await response.json();
       if (!response.ok) throw data.error;
       localStorage.setItem("token", response.headers.get("Authorization"));
@@ -24,6 +26,7 @@ const Login = ({ setCurrUser, setShow }) => {
       console.log("error", error);
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
@@ -38,13 +41,14 @@ const Login = ({ setCurrUser, setShow }) => {
     e.preventDefault();
     setShow(false);
   };
+
   return (
     <div className="flex max-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
         <div>
           <img className="mx-auto h-12 w-auto" src={logo} alt="Your Company" />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Login in to your account
+            Welcome back! Please login.
           </h2>
         </div>
         <div>
@@ -87,18 +91,20 @@ const Login = ({ setCurrUser, setShow }) => {
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <LockClosedIcon
-                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    aria-hidden="true"
-                  />
-                </span>
-                Login
-              </button>
+              <Link to="/customer" onClick={handleClick}>
+                <button
+                  type="submit"
+                  className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <LockClosedIcon
+                      className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                      aria-hidden="true"
+                    />
+                  </span>
+                  Login
+                </button>
+              </Link>
             </div>
           </form>
         </div>
