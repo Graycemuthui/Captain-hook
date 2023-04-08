@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Customer from "./components/customer";
 import Product from "./components/product";
-import User from "./components/authentication/user";
-import PrivateText from "./components/authentication/private_text";
+import User from "./authentication/user";
+import PrivateText from "./authentication/private_text";
 
 const App = () => {
   const [currUser, setCurrUser] = useState(null);

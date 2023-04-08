@@ -1,13 +1,13 @@
 import { useRef } from "react";
-import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.png";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 
-const Login = ({ setCurrUser, setShow }) => {
+const Signup = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
 
-  const login = async (userInfo, setCurrUser) => {
-    const url = "http://localhost:3000/login";
+  const signup = async (userInfo, setCurrUser) => {
+    const url = "http://localhost:3000/signup";
     try {
       const response = await fetch(url, {
         method: "post",
@@ -34,12 +34,13 @@ const Login = ({ setCurrUser, setShow }) => {
     const userInfo = {
       user: { email: data.email, password: data.password },
     };
-    login(userInfo, setCurrUser);
+    signup(userInfo, setCurrUser);
     e.target.reset();
   };
+
   const handleClick = (e) => {
     e.preventDefault();
-    setShow(false);
+    setShow(true);
   };
 
   return (
@@ -48,7 +49,7 @@ const Login = ({ setCurrUser, setShow }) => {
         <div>
           <img className="mx-auto h-12 w-auto" src={logo} alt="Your Company" />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Welcome back! Please login.
+            Signup
           </h2>
         </div>
         <div>
@@ -102,20 +103,20 @@ const Login = ({ setCurrUser, setShow }) => {
                       aria-hidden="true"
                     />
                   </span>
-                  Login
+                  Sign up
                 </button>
               </Link>
             </div>
           </form>
         </div>
 
-        <Link to="/signup" onClick={handleClick}>
+        <Link to="/login" onClick={handleClick}>
           <p className="text-center text-sm text-gray-600">
-            Don't have an account? Sign up
+            Already registered, Login
           </p>
         </Link>
       </div>
     </div>
   );
 };
-export default Login;
+export default Signup;

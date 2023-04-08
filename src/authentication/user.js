@@ -2,7 +2,8 @@ import { useState } from "react";
 import Login from "./login";
 import Logout from "./logout";
 import PrivateText from "./private_text";
-import Customer from "../customer";
+import Customer from "../components/customer";
+import Signup from "./signup";
 
 const User = ({ currUser, setCurrUser }) => {
   const [show, setShow] = useState(true);
@@ -17,6 +18,10 @@ const User = ({ currUser, setCurrUser }) => {
       </div>
     );
 
-  return <div>{show ? <Login setShow={setShow} /> : <Customer />}</div>;
+  return (
+    <div>
+      {show ? <Login setShow={setShow} /> : <Signup setShow={setShow} />}
+    </div>
+  );
 };
 export default User;

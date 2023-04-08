@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 const PrivateText = ({ currUser }) => {
   const [message, setMessage] = useState(null);
   const getText = async () => {
@@ -10,6 +11,7 @@ const PrivateText = ({ currUser }) => {
           authorization: localStorage.getItem("token"),
         },
       });
+
       if (!response.ok) throw Error;
       const data = await response.json();
       setMessage(data.message);
@@ -18,9 +20,11 @@ const PrivateText = ({ currUser }) => {
       setMessage(null);
     }
   };
+
   useEffect(() => {
     if (currUser) getText();
   }, [currUser]);
+
   return <div>{message}</div>;
 };
 export default PrivateText;

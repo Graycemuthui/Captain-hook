@@ -1,13 +1,13 @@
 import { useRef } from "react";
+import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 
-const Signup = ({ setCurrUser, setShow }) => {
+const Login = ({ setCurrUser, setShow }) => {
   const formRef = useRef();
 
-  const signup = async (userInfo, setCurrUser) => {
-    const url = "http://localhost:3000/signup";
+  const login = async (userInfo, setCurrUser) => {
+    const url = "http://localhost:3000/login";
     try {
       const response = await fetch(url, {
         method: "post",
@@ -34,13 +34,12 @@ const Signup = ({ setCurrUser, setShow }) => {
     const userInfo = {
       user: { email: data.email, password: data.password },
     };
-    signup(userInfo, setCurrUser);
+    login(userInfo, setCurrUser);
     e.target.reset();
   };
-
   const handleClick = (e) => {
     e.preventDefault();
-    setShow(true);
+    setShow(false);
   };
 
   return (
@@ -49,7 +48,7 @@ const Signup = ({ setCurrUser, setShow }) => {
         <div>
           <img className="mx-auto h-12 w-auto" src={logo} alt="Your Company" />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Signup
+            Welcome back! Please login.
           </h2>
         </div>
         <div>
@@ -103,20 +102,20 @@ const Signup = ({ setCurrUser, setShow }) => {
                       aria-hidden="true"
                     />
                   </span>
-                  Sign up
+                  Login
                 </button>
               </Link>
             </div>
           </form>
         </div>
 
-        <Link to="/login" onClick={handleClick}>
+        <Link to="/signup" onClick={handleClick}>
           <p className="text-center text-sm text-gray-600">
-            Already registered, Login
+            Don't have an account? Sign up
           </p>
         </Link>
       </div>
     </div>
   );
 };
-export default Signup;
+export default Login;
