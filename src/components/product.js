@@ -4,15 +4,9 @@ const Product = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    try {
-      fetch("http://127.0.0.1:3000/api/v1/products")
-        .then((response) => response.json())
-        .then((data) => {
-          setProducts(data);
-        });
-    } catch (error) {
-      console.log(error);
-    }
+    fetch("http://127.0.0.1:4000/api/v1/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
   }, [products]);
 
   return (
