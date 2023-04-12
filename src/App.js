@@ -5,6 +5,7 @@ import Product from "./components/product";
 import User from "./authentication/user";
 import PrivateText from "./authentication/private_text";
 import Order from "./components/order";
+import Detail from "./pages/productDetail";
 
 const App = () => {
   const [currUser, setCurrUser] = useState(null);
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/customer" element={<Customer />} />
         <Route path="/product" element={<Product />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/product/:id" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );

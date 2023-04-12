@@ -4,16 +4,7 @@ const Order = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/v1/orders", {
-      method: "GET",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers":
-          "Origin, X-Requested-With, Content-Type, Accept",
-      },
-    })
+    fetch("http://127.0.0.1:4000/api/v1/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [orders]);
