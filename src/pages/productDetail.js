@@ -2,21 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Detail = () => {
-  const [products, setProduct] = useState({});
-  const { productId } = useParams();
+  // fetch data based on id
+  const [products, setProducts] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:4000/api/v1/products")
+    fetch(`http://127.0.0.1:4000/api/v1/products/${id}`)
       .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, [productId]);
+      .then((data) => setProducts(data));
+  }, [products]);
 
   return (
     <div class="bg-white">
       <div class="pt-6">
         {products.map((product) => (
           <div
-            key={productId}
+            key={product.id}
             class="product-description col-span-1 flex flex-col bg-white border-2 p-2 h-full"
           >
             <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
