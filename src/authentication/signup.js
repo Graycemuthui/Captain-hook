@@ -89,7 +89,7 @@ const Signup = ({ setCurrUser, setShow }) => {
                   Confirm Password
                 </label>
                 <input
-                  id="password"
+                  id="confirm password"
                   name="password"
                   type="password"
                   autoComplete="current-password"

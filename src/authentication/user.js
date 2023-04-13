@@ -20,7 +20,8 @@ const User = ({ currUser, setCurrUser }) => {
 
   return (
     <div>
-      {show ? <Login setShow={setShow} /> : <Signup setShow={setShow} />}
+      <Login setCurrUser={setCurrUser} />
+      <Signup setCurrUser={setCurrUser} />
     </div>
   );
 };

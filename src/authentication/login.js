@@ -36,6 +36,7 @@ const Login = ({ setCurrUser }) => {
     };
     login(userInfo, setCurrUser);
     e.target.reset();
+    console.log("login");
   };
 
   const handleCustomer = (e) => {
