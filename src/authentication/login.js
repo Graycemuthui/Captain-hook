@@ -3,7 +3,7 @@ import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 
-const Login = ({ setCurrUser, setShow }) => {
+const Login = ({ setCurrUser }) => {
   const formRef = useRef();
 
   const login = async (userInfo, setCurrUser) => {
@@ -37,9 +37,10 @@ const Login = ({ setCurrUser, setShow }) => {
     login(userInfo, setCurrUser);
     e.target.reset();
   };
-  const handleClick = (e) => {
+
+  const handleCustomer = (e) => {
     e.preventDefault();
-    setShow(false);
+    window.location.href = "/customer";
   };
 
   return (
@@ -91,7 +92,7 @@ const Login = ({ setCurrUser, setShow }) => {
             </div>
 
             <div>
-              <Link to="/customer" onClick={handleClick}>
+              <Link to="/customer" onClick={handleCustomer}>
                 <button
                   type="submit"
                   className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -109,7 +110,7 @@ const Login = ({ setCurrUser, setShow }) => {
           </form>
         </div>
 
-        <Link to="/signup" onClick={handleClick}>
+        <Link to="/signup">
           <p className="text-center text-sm text-gray-600">
             Don't have an account? Sign up
           </p>

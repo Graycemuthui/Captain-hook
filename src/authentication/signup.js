@@ -38,11 +38,6 @@ const Signup = ({ setCurrUser, setShow }) => {
     e.target.reset();
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setShow(true);
-  };
-
   return (
     <div className="flex max-h-full items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -89,10 +84,24 @@ const Signup = ({ setCurrUser, setShow }) => {
                   placeholder="Password"
                 />
               </div>
+              <div>
+                <label htmlFor="password" className="pt-4">
+                  Confirm Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Confirm Password"
+                />
+              </div>
             </div>
 
             <div>
-              <Link to="/customer" onClick={handleClick}>
+              <Link to="/login">
                 <button
                   type="submit"
                   className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -110,7 +119,7 @@ const Signup = ({ setCurrUser, setShow }) => {
           </form>
         </div>
 
-        <Link to="/login" onClick={handleClick}>
+        <Link to="/login">
           <p className="text-center text-sm text-gray-600">
             Already registered, Login
           </p>
