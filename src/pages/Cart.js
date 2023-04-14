@@ -9,7 +9,7 @@ function Cart() {
   if (saved.length === 0) {
     return (
       <div
-        key="no-houses"
+        key="no-items"
         className="d-flex flex-wrap container justify-content-center my-2"
       >
         <div>

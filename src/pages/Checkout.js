@@ -18,60 +18,88 @@ function Checkout() {
   }, [saved]);
 
   return (
-    <div className="container">
-      <h2 className="text-center">Checkout</h2>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Image</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          {saved.map((product) => (
-            <tr>
-              <th scope="row">
-                <img
-                  src={product.image}
-                  alt="product"
-                  className="img-fluid"
-                  style={{ width: "100px", height: "100px" }}
-                />
-              </th>
-              <td>{product.title}</td>
-              <td>{product.price}</td>
-              <td>
-                <Link className="text-decoration-none text-dark fw-bold">
-                  View Product
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="d-flex justify-content-center my-3">
-        <h3>Total Price: ${totalPrice}</h3>
-        <button
-          className="mx-2"
-          style={{
-            backgroundColor: "#f55a98",
-            color: "white",
-            border: "none",
-            borderRadius: "30px",
-            padding: "10px 20px",
-          }}
-          onClick={() => {
-            if (totalPrice > 0)
-              alert(
-                "Thank you for shopping with us! Your order has been placed."
-              );
-            else alert("Please add items to cart before checking out.");
-          }}
-        >
-          Checkout
-        </button>
+    <div className="flex flex-col">
+      <div className="overflow-x-auto">
+        <div className="p-1.5 w-full inline-block align-middle">
+          <div className="overflow-hidden border rounded-lg">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                  >
+                    Image
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                  >
+                    Product
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                  >
+                    Price
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                  >
+                    Handle
+                  </th>
+                </tr>
+              </thead>
+              {saved.map((product) => (
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                      <img
+                        src={product.image_url}
+                        alt={product.name}
+                        className="h-80 w-full object-cover object-center"
+                      />
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                      {product.name}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                      {product.price}
+                    </td>
+                    <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                      <Link className="text-decoration-none text-dark fw-bold">
+                        View Product
+                      </Link>
+                    </td>
+                  </tr>
+                </tbody>
+              ))}
+            </table>
+            <div className="d-flex justify-content-center my-3">
+              <h3>Total Price: ${totalPrice}</h3>
+              <button
+                className="mx-2"
+                style={{
+                  backgroundColor: "#f55a98",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "30px",
+                  padding: "10px 20px",
+                }}
+                onClick={() => {
+                  if (totalPrice > 0)
+                    alert(
+                      "Thank you for shopping with us! Your order has been placed."
+                    );
+                  else alert("Please add items to cart before checking out.");
+                }}
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

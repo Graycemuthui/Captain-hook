@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Login from "./login";
-import Logout from "./logout";
-import PrivateText from "./private_text";
-import Customer from "../components/customer";
-import Signup from "./signup";
+import Login from "./Login";
+import Logout from "./Logout";
+import PrivateText from "./Private_text";
+import Customer from "../components/Customer";
+import Signup from "./Signup";
 
 const User = ({ currUser, setCurrUser }) => {
   const [show] = useState(true);

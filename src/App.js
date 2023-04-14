@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Customer from "./components/customer";
-import Product from "./components/product";
-import User from "./authentication/user";
-import Signup from "./authentication/signup";
-import PrivateText from "./authentication/private_text";
-import Login from "./authentication/login";
-import Order from "./components/order";
+import Customer from "./components/Customer";
+import Product from "./components/Product";
+import User from "./authentication/User";
+import Signup from "./authentication/Signup";
+import PrivateText from "./authentication/Private_text";
+import Login from "./authentication/Login";
+import Order from "./components/Order";
 import Detail from "./pages/Detail";
-import NavBar from "./pages/navbar";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 
@@ -16,7 +15,6 @@ const App = () => {
   const [currUser, setCurrUser] = useState(null);
   return (
     <Router>
-      <NavBar />
       <Routes>
         <Route
           path="/"

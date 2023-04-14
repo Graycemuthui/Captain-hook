@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { RoomContext } from "../context";
 import { AiFillHome } from "react-icons/ai";
 
-function NavBar() {
+function Navbar() {
   const { saved } = useContext(RoomContext);
 
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="top-0 right-0 w-[30vw] pt-40  p-10 pl-20 text-black fixed h-60 ">
       <Link
         to="/"
         style={{ textDecoration: "none", color: "black" }}
@@ -20,15 +20,6 @@ function NavBar() {
         />
 
         <h2 className="italic-font">HOME</h2>
-      </Link>
-
-      <Link
-        to="/checkout"
-        className="d-flex justify-content-center mx-4 text-decoration-none text-dark fw-bold"
-      >
-        <h2 className="italic-font text-center text-decoration-none">
-          CHECKOUT
-        </h2>
       </Link>
       <Link
         to="/cart"
@@ -42,8 +33,17 @@ function NavBar() {
         />
         <h2 className="italic-font">{saved.length}</h2>
       </Link>
+
+      <Link
+        to="/checkout"
+        className="d-flex justify-content-center mx-4 text-decoration-none text-dark fw-bold"
+      >
+        <button className="group relative flex w-40 justify-center rounded-md bg-indigo-600 px-2 py-1 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          CHECKOUT
+        </button>
+      </Link>
     </nav>
   );
 }
 
-export default NavBar;
+export default Navbar;
