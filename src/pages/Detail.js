@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { RoomContext } from "../context";
 
 const Detail = () => {
+  const { addCart } = useContext(RoomContext);
   const { id } = useParams();
   const [product, setProducts] = useState([]);
 
@@ -37,6 +39,21 @@ const Detail = () => {
                 <p className="text-3xl tracking-tight text-gray-900">
                   ${product.price}
                 </p>
+              </div>
+              <div className="d-flex justify-content-center mt-3">
+                <button
+                  style={{
+                    backgroundColor: "#f55a98",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "30px",
+                    padding: "10px 20px",
+                    marginTop: "20px",
+                  }}
+                  onClick={() => addCart(product)}
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Customer from "./components/customer";
 import Product from "./components/product";
 import User from "./authentication/user";
@@ -7,12 +7,16 @@ import Signup from "./authentication/signup";
 import PrivateText from "./authentication/private_text";
 import Login from "./authentication/login";
 import Order from "./components/order";
-import Detail from "./pages/productDetail";
+import Detail from "./pages/Detail";
+import NavBar from "./pages/navbar";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   const [currUser, setCurrUser] = useState(null);
   return (
-    <BrowserRouter>
+    <Router>
+      <NavBar />
       <Routes>
         <Route
           path="/"
@@ -25,8 +29,10 @@ const App = () => {
         <Route path="/product" element={<Product />} />
         <Route path="/order" element={<Order />} />
         <Route path="/product/:id" element={<Detail />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 

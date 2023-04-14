@@ -8,8 +8,6 @@ import Signup from "./signup";
 const User = ({ currUser, setCurrUser }) => {
   const [show] = useState(true);
 
-  // make sure to check if currUser is valid
-
   if (currUser)
     return (
       <div>
