@@ -6,7 +6,9 @@ import Customer from "../components/customer";
 import Signup from "./signup";
 
 const User = ({ currUser, setCurrUser }) => {
-  const [show, setShow] = useState(true);
+  const [show] = useState(true);
+
+  // make sure to check if currUser is valid
 
   if (currUser)
     return (
@@ -20,8 +22,11 @@ const User = ({ currUser, setCurrUser }) => {
 
   return (
     <div>
-      <Login setCurrUser={setCurrUser} />
-      <Signup setCurrUser={setCurrUser} />
+      {show ? (
+        <Login setCurrUser={setCurrUser} />
+      ) : (
+        <Signup setCurrUser={setCurrUser} />
+      )}
     </div>
   );
 };
