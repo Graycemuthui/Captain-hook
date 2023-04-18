@@ -1,6 +1,6 @@
-## Country Finder
+## Captain Hook
 
-- This is a simple React app that allows users to search for countries and get information about them. It uses the REST Countries API to fetch data about countries.
+- This is a simple React app that showcases different type of art pieces. It is a simple app that allows users to view different art pieces and purchase them.
 
 ## Built With
 
