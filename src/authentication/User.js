@@ -2,7 +2,7 @@ import { useState } from "react";
 import Login from "./Login";
 import Logout from "./Logout";
 import PrivateText from "./Private_text";
-import Customer from "../components/Customer";
+import Customer from "../components/Customer.js";
 import Signup from "./Signup";
 
 const User = ({ currUser, setCurrUser }) => {
