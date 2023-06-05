@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <nav className="top-0 right-0 w-[30vw] pt-40  p-10 pl-20 text-black fixed h-60 ">
       <Link
-        to="/"
+        to="/product"
         style={{ textDecoration: "none", color: "black" }}
         className="navbar-brand d-flex justify-content-start mx-4"
       >
